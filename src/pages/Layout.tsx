@@ -1,14 +1,14 @@
 import { Container } from '@mui/material'
+import { Routes } from '../routes'
 import { Surface } from '../styles/base'
 import { Header } from './Header'
-import { Homepage } from './Homepage'
 
 export const Layout = () => {
   return (
     <Surface container spacing={2}>
       <Container fixed>
         <Header />
-        <Homepage />
+        <Routes />
       </Container>
     </Surface>
   )

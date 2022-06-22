@@ -1,28 +1,30 @@
 import { FC } from 'react'
 import { useRoutes } from 'react-router-dom';
-import { HeartRatesChart } from './pages/heartrates/HeartRatesChart';
-import { HeartRatesTable } from './pages/heartrates/HeartRatesTable';
-import { Layout } from './pages/Layout';
+import { HeartRatesChartDetail } from './pages/heartrates/detail/HeartRatesChartDetail';
+import { HeartRatesTableDetail } from './pages/heartrates/detail/HeartRatesTableDetail';
+import { Homepage } from './pages/Homepage';
 
 export const Routes:FC = () => {
     let routes = useRoutes([
         {
-          path: "/",
-          element: <Layout />,
           children: [
             {
-              path: '/chart',
-              element: <HeartRatesChart data={[]} type={''}/>,
+              path: '/',
+              element: <Homepage />,
             },
             {
-              path: '/table',
-              element: <HeartRatesTable data={[]} tableRows={10}/>,
+              path: 'chart',
+              element: <HeartRatesChartDetail />,
+            },
+            {
+              path: 'table',
+              element: <HeartRatesTableDetail />,
             }
           ]
         },
         {
           path: '*',
-          element: <Layout />,
+          element: <Homepage />,
         }
       ]);
 

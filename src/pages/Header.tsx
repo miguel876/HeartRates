@@ -3,6 +3,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { AppBar, Button, DrawerContainer, Logo, Toolbar, ButtonsMenu } from "../styles/header";
+import properties from '../properties.json'
 
 const headersData = [
   {
@@ -102,9 +103,18 @@ export const Header = () => {
   };
 
   const logo = (
-    <Logo variant="h6">
-      HeartRates
-    </Logo>
+    <Link 
+    {...{
+      component: RouterLink,
+      to: '/',
+      style: { textDecoration: "none" },
+    }}
+    >
+      <Logo variant="h6">
+        { properties.name }
+      </Logo>
+    </Link>
+    
   );
 
   const getMenuButtons = () => {
@@ -127,7 +137,7 @@ export const Header = () => {
 
   return (
       <AppBar elevation={0}>
-        <Container>
+        <Container fixed>
           <Stack direction="row" justifyContent="space-between">
         {mobileView ? displayMobile() : displayDesktop()}
           </Stack>

@@ -13,4 +13,10 @@ export default {
       main: '#fff',
       paper: '#f3f3f3',
     },
+    error: {
+      main: '#f25a5a',
+    },
+    success: {
+      main: '#1ed06a'
+    }
   }

@@ -1,6 +1,7 @@
-import { FC } from 'react'
-import { Chart } from '../../components/Chart';
-import { dateTimeToDate } from '../../utils/date';
+import { Skeleton } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { Chart } from '../../../components/Chart';
+import { dateTimeToDate } from '../../../utils/date';
 
 export const options = {
   responsive: true,
@@ -16,14 +17,16 @@ export const options = {
   },
 };
 
-export const HeartRatesChart:FC<{data: [], type: string}> = ({data, type}) => {
+export const HeartRatesChart = () => { 
+  const { filteredData: data, type} = useSelector((state: { heartRates: { filteredData: [], type: string}}) => state.heartRates) as {filteredData: [], type: string}
+
     const chartData = {
-        labels: data.map(({dateTime}) => dateTimeToDate(dateTime)),
+        labels: data && data?.map(({dateTime}) => dateTimeToDate(dateTime)),
         datasets: [
           {
             id: 'min',
             label: 'Minimum',
-            data: data?.map(({minimum}) => minimum),
+            data: data && data?.map(({minimum}) => minimum),
             borderColor: 'rgb(255, 99, 132)',
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
           },
@@ -46,6 +49,9 @@ export const HeartRatesChart:FC<{data: [], type: string}> = ({data, type}) => {
       };   
 
     return (
+      data.length > 0 ?
         <Chart chartData={chartData} options={options} />
+      :  
+        <Skeleton animation="wave" width="100%" height={300} sx={{ bgcolor: 'rgba(0,0,0,0.04)' }} />
     )
 }

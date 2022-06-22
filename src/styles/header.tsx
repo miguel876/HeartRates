@@ -6,10 +6,13 @@ export const AppBar = styled(A)(({ theme }) => ({
     fontFamily: theme.typography.fontFamily,
   }));
 
-export const Logo = styled(Typography)`
-    font-weight: 600;
-    width: 100%;
-`
+export const Logo = styled(Typography)(({ theme }) => ({
+    fontWeight: 600,
+    width: '100%',
+    color: theme.palette.primary.dark
+}))
+    
+
 
 export const ButtonsMenu = styled('div')`
     width: 100%;

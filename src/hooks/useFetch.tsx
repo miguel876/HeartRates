@@ -30,7 +30,7 @@ export const useGet = (endpoint: string) => {
 
         getResults()
 
-    }, [])
+    }, [endpoint])
   
     return {
         isLoading: data ? true : false,
