@@ -2,13 +2,13 @@ import { useEffect } from 'react';
 import { useGet } from '../../hooks/useFetch';
 import { Filters } from './Filters';
 import { HeartRatesChart } from './dashboard/HeartRatesChart';
-import { Card } from '../../styles/base';
 import { HeartRatesTable } from './dashboard/HeartRatesTable';
 import { Stack } from '@mui/material';
 import { Link } from '../../components/Link';
 import { useDispatch } from 'react-redux';
 import { add } from '../../store/slices/dataSlice';
 import properties from '../../properties.json'
+import { Card } from './../../components/Card';
 
 const linkStyle = {
   position: 'absolute', 
