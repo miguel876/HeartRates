@@ -1,4 +1,4 @@
 {
     "name": "HeartRates",
-    "endpoint": "http://localhost:3000/heartrate"
+    "endpoint": "https://heart-rates.herokuapp.com/heartrate"
 }
